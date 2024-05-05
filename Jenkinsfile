@@ -18,7 +18,7 @@ pipeline {
                 sh """
                     docker run -d mahmeddayem/ispf_dev:v${BUILD_NUMBER}
                     """
-                echo 'Deployment completed'
+                echo sh(script: "docker logs ${docker ps -lq}")
             }
         } 
     }
