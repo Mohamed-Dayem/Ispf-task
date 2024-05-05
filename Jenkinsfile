@@ -13,5 +13,13 @@ pipeline {
                 }
             }
         }
+        stage('Deploy') {
+            steps {
+                sh """
+                    docker run -it mahmeddayem/app:v${BUILD_NUMBER}
+                """
+                echo 'Deployment completed'
+            }
+        } 
     }
 }
