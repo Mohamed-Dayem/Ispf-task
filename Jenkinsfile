@@ -17,7 +17,8 @@ pipeline {
             steps {
                 sh """
                     docker run -d mahmeddayem/ispf_dev:v${BUILD_NUMBER}
-                    docker logs ${docker ps -lq}
+                    CONTAINER_ID=$(docker run -d mahmeddayem/ispf_dev:v${BUILD_NUMBER})
+                    docker logs ${CONTAINER_ID}
 
                 echo 'Deployment completed'
             }
