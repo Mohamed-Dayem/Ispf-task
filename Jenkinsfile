@@ -16,7 +16,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh """
-                    docker run -it mahmeddayem/app:v${BUILD_NUMBER}
+                    docker run -it mahmeddayem/ispf_dev:v${BUILD_NUMBER}
                 """
                 echo 'Deployment completed'
             }
