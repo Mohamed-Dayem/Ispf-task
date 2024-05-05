@@ -15,10 +15,12 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                script {
-                    def containerId = sh(script: "docker run -d mahmeddayem/ispf_dev:v${BUILD_NUMBER}", returnStdout: true).trim()
-                    echo sh(script: "docker logs ${containerId}", returnStdout: true).trim()
-                }
+                sh """
+                    docker run -it mahmeddayem/ispf_dev:v${BUILD_NUMBER}
+                    """
+
+                    echo "Deployment complete"
+                
             }
         } 
     }
