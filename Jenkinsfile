@@ -20,7 +20,7 @@ pipeline {
 
                 """
                 sh """
-                    docker logs $(docker ps -lq)
+                    docker logs ${docker ps -lq}
                 """
                 echo 'Deployment completed'
             }
