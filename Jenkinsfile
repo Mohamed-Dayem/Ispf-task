@@ -17,11 +17,8 @@ pipeline {
             steps {
                 sh """
                     docker run -d mahmeddayem/ispf_dev:v${BUILD_NUMBER}
-
-                """
-                sh """
                     docker logs ${docker ps -lq}
-                """
+
                 echo 'Deployment completed'
             }
         } 
